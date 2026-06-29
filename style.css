@@ -1,0 +1,17 @@
+CSS body {
+  text-align: center;
+  font-family: Arial;
+  background: #111;
+  color: white;
+}
+
+#bag {
+  font-size: 100px;
+  margin: 50px;
+  transition: 0.1s;
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 18px;
+}
