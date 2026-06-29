@@ -1,4 +1,10 @@
 CSS body {
+  margin: 0;
+  padding: 0;
+  background: url("bg.png") no-repeat center center fixed;
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
   text-align: center;
   font-family: Arial;
   background: #111;
@@ -14,4 +20,8 @@ CSS body {
 button {
   padding: 15px 30px;
   font-size: 18px;
+}
+h1, p {
+  color: white;
+  text-shadow: 2px 2px 5px black;
 }
