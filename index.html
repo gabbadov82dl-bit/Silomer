@@ -2,28 +2,101 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Punch Game</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#0b0b10">
+  <title>Boxing Bot Game</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div class="app-shell">
+    <div class="phone-frame" id="machine">
+      <div class="header">
+        <div>
+          <div class="badge">TG GAME</div>
+          <h1 class="title-red">BOXING</h1>
+        </div>
+        <div class="record-pill">
+          <span>Рекорд</span>
+          <strong id="best-score">0</strong>
+        </div>
+      </div>
 
-  <div class="game">
+      <div class="name-box">
+        <input id="player-name" type="text" maxlength="12" placeholder="Ваше имя" aria-label="Ваше имя">
+      </div>
 
-    <h1>Punch Game</h1>
+      <div class="leaderboard">
+        <div class="leaderboard-title">Топ игроков</div>
+        <ol id="leader-list" class="leaderboard-list"></ol>
+      </div>
 
-    <div id="bag">🥊</div>
+      <div class="scoreboard">
+        <div class="panel">
+          <span>Счёт</span>
+          <strong id="score">0</strong>
+        </div>
+        <div class="panel">
+          <span>Мощность</span>
+          <div class="power-meter" aria-label="power meter">
+            <div class="power-fill" id="power-fill"></div>
+          </div>
+          <strong id="power-value">0%</strong>
+        </div>
+      </div>
 
-    <button onclick="punch()">УДАР</button>
-    <button onclick="goFullScreen()">Полный экран</button>
+      <div class="bag-area">
+        <div class="impact-flash" id="impact-flash"></div>
+        <div id="bag" class="bag" role="button" tabindex="0" aria-label="ударить по перчаткам">
+          <svg viewBox="0 0 220 180" role="img" aria-hidden="true">
+            <ellipse cx="110" cy="160" rx="80" ry="16" fill="#070a0f" opacity="0.4"></ellipse>
+            <g transform="translate(20 22)">
+              <path d="M26 58c0-20 14-35 33-35 13 0 24 7 31 18 3-5 8-9 15-9 18 0 30 15 30 33v26c0 15-7 28-19 37-10 8-24 13-37 13H53c-15 0-28-6-37-16-10-11-15-26-15-41V58z" fill="#f97316" stroke="#7c2d12" stroke-width="4"></path>
+              <path d="M37 61c0-10 9-18 20-18 7 0 14 3 18 8" stroke="#fff7ed" stroke-width="4" fill="none" stroke-linecap="round"></path>
+              <path d="M56 44c8-8 16-12 28-12" stroke="#fff7ed" stroke-width="4" fill="none" stroke-linecap="round"></path>
+              <path d="M91 24c8-10 20-15 34-15 14 0 25 5 33 13" stroke="#fff7ed" stroke-width="4" fill="none" stroke-linecap="round"></path>
+            </g>
+            <g transform="translate(100 22)">
+              <path d="M26 58c0-20 14-35 33-35 13 0 24 7 31 18 3-5 8-9 15-9 18 0 30 15 30 33v26c0 15-7 28-19 37-10 8-24 13-37 13H53c-15 0-28-6-37-16-10-11-15-26-15-41V58z" fill="#f97316" stroke="#7c2d12" stroke-width="4"></path>
+              <path d="M37 61c0-10 9-18 20-18 7 0 14 3 18 8" stroke="#fff7ed" stroke-width="4" fill="none" stroke-linecap="round"></path>
+              <path d="M56 44c8-8 16-12 28-12" stroke="#fff7ed" stroke-width="4" fill="none" stroke-linecap="round"></path>
+              <path d="M91 24c8-10 20-15 34-15 14 0 25 5 33 13" stroke="#fff7ed" stroke-width="4" fill="none" stroke-linecap="round"></path>
+            </g>
+            <rect x="45" y="118" width="130" height="20" rx="10" fill="#c2410c"></rect>
+            <path d="M60 110c8 0 12-6 22-6s18 6 26 6" stroke="#fff7ed" stroke-width="4" fill="none" stroke-linecap="round"></path>
+          </svg>
+        </div>
+        <div class="hint">Тапай по перчаткам</div>
+      </div>
 
-    <p>Очки: <span id="score">0</span></p>
+      <div class="stats">
+        <div class="stat">
+          <span>Уровень</span>
+          <strong id="level">1</strong>
+        </div>
+        <div class="stat">
+          <span>Осталось</span>
+          <strong id="timer">30</strong>
+        </div>
+        <div class="stat">
+          <span>Серия</span>
+          <strong id="combo">0</strong>
+        </div>
+      </div>
 
+      <div class="controls">
+        <button id="punch-btn">УДАР</button>
+        <button id="start-btn">СТАРТ</button>
+        <button id="stop-btn">СТОП</button>
+      </div>
+
+      <div class="status-row">
+        <span id="credit">ON</span>
+        <span id="message">Нажми старт или тапни по перчаткам</span>
+      </div>
+    </div>
   </div>
 
   <script src="script.js"></script>
-
 </body>
 </html>
 
